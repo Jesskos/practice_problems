@@ -47,17 +47,21 @@ def dec2bin(num):
     '1'
     >>> dec2bin(10)
     '1010'
+    >>> dec2bin(8)
+    '1000'
+
 
     """
 
     binary_str = ""
     if num == 0:
-        return 0
+        return '0'
     while num:
         if num % 2 == 0:
             binary_str = '0' + binary_str
         else:
             binary_str = '1' + binary_str
+        num = num/2
     return binary_str 
 
 
