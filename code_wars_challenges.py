@@ -65,6 +65,42 @@ def dec2bin(num):
     return binary_str 
 
 
+def maxSequence(arr):
+    ''' The maximum sum subarray problem consists in finding the maximum sum of a contiguous subsequence in an array or list of integers:
+
+    >>> maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+    6 
+    maxSequence([])
+    0 
+    '''
+
+def is_prime(num):
+    ''' returns True if number is prime 
+    >>> is_prime(2)
+    True
+    >>> is_prime(5)
+    True
+    >>> is_prime(6)
+    False
+    >>> is_prime(1)
+    False
+    ''' 
+
+
+    i = 2
+    if num == 2:
+        return True
+    if num == 1 or num == 0:
+        return False
+    if num < 0: 
+        return False 
+    while i < num:
+        if num % i  == 0:
+            return False
+        i += 1 
+    return True 
+      
+
 
     
 if __name__ == "__main__":
