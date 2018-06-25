@@ -101,6 +101,71 @@ def is_prime(num):
     return True 
       
 
+def done_or_not(board): #board[i][j]
+
+    ''' checks whether or not a sudoku board is correct
+    >>> done_or_not([[1, 3, 2, 5, 7, 9, 4, 6, 8]
+                        ,[4, 9, 8, 2, 6, 1, 3, 7, 5]
+                        ,[7, 5, 6, 3, 8, 4, 2, 1, 9]
+                        ,[6, 4, 3, 1, 5, 8, 7, 9, 2]
+                        ,[5, 2, 1, 7, 9, 3, 8, 4, 6]
+                        ,[9, 8, 7, 4, 2, 6, 5, 3, 1]
+                        ,[2, 1, 4, 9, 3, 5, 6, 8, 7]
+                        ,[3, 6, 5, 8, 1, 7, 9, 2, 4]
+                        ,[8, 7, 9, 6, 4, 2, 1, 5, 3]])
+    'Finished!'
+
+    >>> done_or_not([[1, 3, 2, 5, 7, 9, 4, 6, 8]
+                        ,[4, 9, 8, 2, 6, 1, 3, 7, 5]
+                        ,[7, 5, 6, 3, 8, 4, 2, 1, 9]
+                        ,[6, 4, 3, 1, 5, 8, 7, 9, 2]
+                        ,[5, 2, 1, 7, 9, 3, 8, 4, 6]
+                        ,[9, 8, 7, 4, 2, 6, 5, 3, 1]
+                        ,[2, 1, 4, 9, 3, 5, 6, 8, 7]
+                        ,[3, 6, 5, 8, 1, 7, 9, 2, 4]
+                        ,[8, 7, 9, 6, 4, 2, 1, 3, 5]])
+    'Try again!'
+    
+    '''
+def done_or_not(board): #board[i][j]
+  # checking each row
+    for row in board:
+        if len(set(row)) != 9:
+            return 'Try again!'
+          
+  # checking each column 
+    i = 0
+    while i <= 8:
+        column = []
+        for row in board:
+            column.append(row[i])
+        if len(set(column)) != 9:
+            return 'Try again!' 
+        i += 1
+  
+  # checking each 3 by 3 square
+
+    x1 = 0
+    x2 = 3
+
+    while x1 <= 6:
+        y1 = 0 
+        y2 = 3
+        while y1 <= 6:
+            box = []
+            for row in board[x1:x2]:
+                box.extend(row[y1:y2])
+            if len(set(box)) != 9:
+                return 'Try again!'
+            y1 += 3
+            y2 += 3 
+        x1 += 3
+        x2 += 3
+              
+  
+    return 'Finished!'
+
+
 
     
 if __name__ == "__main__":
