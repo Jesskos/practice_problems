@@ -165,7 +165,29 @@ def done_or_not(board): #board[i][j]
   
     return 'Finished!'
 
+def order_weight(strng):
+    ''' orders a str of weights based on sum of digits 
+    >>> order_weight("103 123 4444 99 2000")
+    '2000 103 123 4444 99'
 
+    >>> order_weight("2000 10003 1234000 44444444 9999 11 11 22 123")
+    '11 11 2000 10003 22 123 1234000 44444444 9999'
+
+    '''
+    list_of_weights = strng.split(" ")
+    weight_list_updated = []
+    final_str = ""
+    for weight in list_of_weights:
+        sum = 0 
+        weight_digits = list(weight)
+        for digit in weight_digits:
+            sum += int(digit)
+        weight_list_updated.append((sum, weight))
+    weight_list_updated.sort()
+    for weight in weight_list_updated:
+        final_str = final_str + str(weight[1]) + " "
+    return final_str[0:-1]
+    
 
     
 if __name__ == "__main__":
