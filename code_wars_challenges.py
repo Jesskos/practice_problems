@@ -188,6 +188,30 @@ def order_weight(strng):
         final_str = final_str + str(weight[1]) + " "
     return final_str[0:-1]
     
+def recursive_index(needle, haystack):
+    """Given list (haystack), return index (0-based) of needle in the list.
+
+    Return None if needle is not in haystack.
+
+    Do this with recursion. You MAY NOT USE A `for` OR `while` LOOP.
+    >>> lst = ["hey", "there", "you"]
+    >>> recursive_index("porcupine", lst) is None
+    True
+    >>> recursive_index("you", ["hey", "there", "you"])
+    2
+    >>> recursive_index("there", ["hey", "there", "you"])
+    1
+
+    """
+
+    if not haystack:
+        return None
+
+    item = haystack.pop()
+    if item == needle:
+        print len(haystack)
+    else:
+        return recursive_index(needle, haystack)
 
     
 if __name__ == "__main__":
