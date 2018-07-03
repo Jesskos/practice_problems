@@ -265,8 +265,12 @@ def print_recursively(lst):
 def count_recursively(lst):
     """Return number of items in a list, using recursion."""
 
+    if not lst:
+        return 0 
+
     if lst:
-        return count_recursively(lst.pop()) + 1 
+        return count_recursively(lst[1:]) + 1
+
 
 def valid_parentheses(string):
     brackets = []
@@ -281,7 +285,7 @@ def valid_parentheses(string):
     if not brackets:
         return True
     return False 
-  
+
 
 
 
