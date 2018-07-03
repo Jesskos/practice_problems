@@ -286,7 +286,15 @@ def valid_parentheses(string):
         return True
     return False 
 
+def sum_list(nums):
+    """Using recursion, return the sum of numbers in a list."""
 
+    if not nums:
+        return 0 
+
+    if nums:
+        num = nums.pop()
+        return sum_list(nums) + num
 
 
     
