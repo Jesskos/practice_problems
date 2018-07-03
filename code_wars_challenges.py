@@ -295,6 +295,28 @@ def sum_list(nums):
     if nums:
         num = nums.pop()
         return sum_list(nums) + num
+def split(astring, splitter):
+
+    """Split a string by splitter and return list of splits.
+    >>> split("my dog's name is teddy", "d")
+    ['my ', "og's name is te", '', 'y']
+    >>> split('colorful', 'l')
+    ['co', 'orfu', '']
+    >>> split('', '')
+    []
+    """
+
+    splits = []
+    last_idx = 0
+    i = 0 
+    while i < len(astring):
+        if astring[i] == splitter:
+            splits.append(astring[last_idx:i])
+            last_idx = i + 1 
+        if i == len(astring)-1:
+            splits.append(astring[last_idx:])
+        i += 1 
+    return splits
 
 
     
