@@ -318,8 +318,60 @@ def split(astring, splitter):
         i += 1 
     return splits
 
+# def hour_glass_sum(grid): 
+#     """ Find max hourglass sum in a grid 
+#     >>> hour_glass_sum([[1,2,3,,1,1,1], 
+#         [3,4,5,1,1,1],
+#         [6,7,8,0,0,0],
+#         [9,8,7,0,0,0],
+#         [7,7,7,1,1,1],
+#         [9,9,9,0,0,0]])
+#     72
+#     >>> 
+#     """
 
-    
+#     sums = []
+
+#     max = None 
+
+#     for i in range(len(grid)-2):
+#         for j in range(len(grid)-2):
+#             hourglass_sum = sum(grid[i][grid[j:j+3]]) + sum(grid[i+1][j+1]) + sum(grid[i+2][j+2])
+
+
+
+def is_palindrome(word):
+    """Return True/False if this word is a palindrome.
+    >>> is_palindrome("a")
+    True
+
+    >>> is_palindrome("noon")
+    True
+
+    >>> is_palindrome("racecar")
+    True
+
+    >>> is_palindrome("porcupine")
+    False
+
+    >>> is_palindrome("Racecar")
+    False
+
+    """
+
+    i = 0 
+    while i < len(word) / 2: 
+        if word[i] != word[len(word)-i-1]:
+            return False
+        i += 1 
+    return True 
+
+
+
+
+
+
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
