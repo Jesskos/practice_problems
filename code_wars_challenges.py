@@ -318,17 +318,17 @@ def split(astring, splitter):
         i += 1 
     return splits
 
-# def hour_glass_sum(grid): 
-#     """ Find max hourglass sum in a grid 
-#     >>> hour_glass_sum([[1,2,3,,1,1,1], 
-#         [3,4,5,1,1,1],
-#         [6,7,8,0,0,0],
-#         [9,8,7,0,0,0],
-#         [7,7,7,1,1,1],
-#         [9,9,9,0,0,0]])
-#     72
-#     >>> 
-#     """
+def hour_glass_sum(grid): 
+    """ Find max hourglass sum in a grid 
+    >>> hour_glass_sum([[1,2,3,1,1,1], [3,4,5,1,1,1], [6,7,8,0,0,0], [9,8,7,0,0,0], [7,7,7,1,1,1], [9,9,9,0,0,0]])
+    58
+    """
+    sum_list = []
+    for row_index in range(len(grid)-2):
+        for num_index in range(len(grid)-2):
+            hourglass_sum = sum(grid[row_index][num_index:num_index+3]) + grid[row_index+1][num_index+1] + sum(grid[row_index+2][num_index:num_index+3])
+            sum_list.append(hourglass_sum)
+    return max(sum_list)
 
 #     sums = []
 
