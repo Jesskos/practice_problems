@@ -366,6 +366,35 @@ def is_palindrome(word):
         i += 1 
     return True 
 
+def binary_search_recursively(arr, num, right_array_factor=0):
+    ''' recursively searches a sorted array for the index of a number within that array, and returns the index
+    >>> binary_search_recursively([1,2,3,4,5], 0)
+    'number not found'
+    >>> binary_search_recursively([1,2,3,4,5], 6)
+    'number not found'
+    >>> binary_search_recursively([1,2,3,4,5], 5)
+    4
+    >>> binary_search_recursively([1,2,3,4,5], 1)
+    0
+    ''' 
+
+    midpoint = len(arr)/2
+    if arr: 
+        if arr[midpoint] > num:
+            return binary_search_recursively(arr[:midpoint], num)
+        elif arr[midpoint] < num:
+            right_array_factor = len(arr[:midpoint+1])
+            return binary_search_recursively(arr[midpoint+1:], num, right_array_factor)
+        elif arr[midpoint] == num:
+            return midpoint + right_array_factor
+    else:
+        return "number not found"
+
+
+
+
+
+
 
 
 
