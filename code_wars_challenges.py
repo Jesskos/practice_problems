@@ -391,16 +391,40 @@ def binary_search_recursively(arr, num, right_array_factor=0):
     else:
         return "number not found"
 
-# def find_pivot_point(arr):
-#     ''' finds the pivot point in a sorted array shifted n places. Pivot point defined as number
-#     where decrease occurs after increase. if no shift, returns None ''' 
-#     for index in range(len(arr)):
-#         if arr[index+1]<arr[index]:
-#             return index + 1 
+def find_pivot_point(arr):
+    ''' finds the pivot point in a sorted array shifted n places. Pivot point defined as index
+    where decrease occurs after increase in integers. if no shift in array, returns None ''' 
+    for index in range(len(arr)):
+        if arr[index+1]<arr[index]:
+            return index + 1 
 
-#     return None 
+    return None 
 
-# def binary_search_shifted_arr(arr, num):
+# def find_pivot_point_binary_searcg(arr):
+#     ''' same as above but finds the pivot point index using binary search 
+
+#     find_pivot_point_binary_searcg([4,5,6,7,8,1,2]
+#     5
+#     find_pivot_point_binary_searcg([8,1,2,3,4,5,6]
+#     1
+
+#     '''
+#     low_index = 0 
+#     high_index = len(arr)-1 
+#     midpoint = (high - low)/2
+#     while begin <= end:
+#         midpoint = (high - low)/2 + low 
+#         if arr[midpoint] < arr[midpoint-1]:
+#             return midpoint 
+#         elif arr[midpoint] > arr[midpoint-1]:
+#             high_index += 1 
+#         elif arr[midpoint]  arr[midpoint-1]:
+#             high_index += 1 
+
+
+
+
+#     def binary_search_shifted_arr(arr, num):
 #     pivot_point = find_pivot_point(arr)
 #     arr_left = arr[:pivot_point]
 #     arr_right = arr[pivot_point:]
@@ -443,6 +467,47 @@ def binary_search(val):
             num_guesses += 1 
             return num_guesses 
 
+def has_balanced_brackets(phrase):
+    """Does a given string have balanced pairs of brackets?
+
+    Given a string as input, return True or False depending on whether the
+    string contains balanced (), {}, [], and/or <>.
+
+    >>> has_balanced_brackets("(my name is) [teddy]")
+    True
+
+    >>> has_balanced_brackets("[[]])")
+    False
+
+    >>> has_balanced_brackets("<(][)>}")
+    False
+
+    >>> has_balanced_brackets("(()))")
+    False
+
+    >>> has_balanced_brackets(">")
+    False
+
+    >>> has_balanced_brackets("(This has {too many} ) closers. )")
+    False
+
+    """
+    
+    bracket_dictionary = {"()": [], "[]": [], "{}": [], "<>": []}
+    for letter in phrase: 
+        for bracket_type in bracket_dictionary:
+            if letter in bracket_type and letter in "([{<":
+                bracket_dictionary[bracket_type].append(letter)
+            elif letter in bracket_type and letter in ")]}>":
+                if not bracket_dictionary[bracket_type]:
+                    return False
+                else:
+                    bracket_dictionary[bracket_type].pop()
+    for bracket_type in bracket_dictionary:
+        if bracket_dictionary[bracket_type]:
+            return False
+    else:
+        return True 
 
            
 
