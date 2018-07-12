@@ -1,3 +1,4 @@
+from random import choice 
 
 def to_camel_case(str):
     """ Converts a string to Camel Case with underscores and hyphens (from codewars)
@@ -390,14 +391,60 @@ def binary_search_recursively(arr, num, right_array_factor=0):
     else:
         return "number not found"
 
+# def find_pivot_point(arr):
+#     ''' finds the pivot point in a sorted array shifted n places. Pivot point defined as number
+#     where decrease occurs after increase. if no shift, returns None ''' 
+#     for index in range(len(arr)):
+#         if arr[index+1]<arr[index]:
+#             return index + 1 
+
+#     return None 
+
+# def binary_search_shifted_arr(arr, num):
+#     pivot_point = find_pivot_point(arr)
+#     arr_left = arr[:pivot_point]
+#     arr_right = arr[pivot_point:]
+#     binary_search_result_left = binary_search_recursively(arr_left, num)
+#     if binary_search_result_left != "number not found":
+#         return binary_search_result
+#     else:
+#         return binary_search_recursively(arr_right, num)
+
+
+def binary_search(val):
+    """Using binary search (non-recursively), find val in range 1-100. Return # of guesses.
+    >>> binary_search(10)
+    6
+    >>> binary_search(50)
+    1
+    >>> binary_search(87)
+    7
 
 
 
+    """
+
+    assert 0 < val < 101, "Val must be between 1-100"
+
+    low = 0 
+    high = 101
+    num_guesses = 0
+    guess = 0 
+
+    while guess != val:
+        guess = (high - low)/2 + low 
+        if guess > val:
+            high = guess 
+            num_guesses += 1
+        elif guess < val:
+            low = guess 
+            num_guesses +=1 
+        else:
+            num_guesses += 1 
+            return num_guesses 
 
 
-
-
-
+           
 
 
 
