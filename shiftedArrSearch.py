@@ -1,7 +1,7 @@
 def linear_search(shiftArr, num):
-   for index in range(len(shiftArr)):
-        if shiftArr[index] == num:
-          return index
+  for index in range(len(shiftArr)):
+    if shiftArr[index] == num:
+      return index
   return -1
 
 def binary_search(shiftArr, num):
@@ -22,6 +22,3 @@ def shifted_arr_search(shiftArr, num):
     return linear_search(shiftArr, num)
   else:
     return binary_search(shiftArr, num)
-    
-      
-  
