@@ -28,4 +28,26 @@ def urlify(phrase):
 	phrase_list = phrase.split(" ")
 	return "%20".join(phrase_list)
 
+def is_palindome_permutation(phrase):
+	'''' checks if a phrase is a permutation of a pallindorme'''
+
+	letter_count_dictionary = {}
+	for letter in phrase:
+		letter_count_dictionary[letter] = letter_count_dictionary.get(letter, 0) + 1 
+	letters_occurring_odd_num_times = 0 
+	for letter in letter_count_dictionary:
+		if letter_count_dictionary[letter] % 2 != 0:
+			letters_occurring_odd_num_times +=1 
+	if letters_occurring_odd_num_times > 1:
+		return False
+	else:
+		return True
+
+
+
+
+
+
+		
+
 
