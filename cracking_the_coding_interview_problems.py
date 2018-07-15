@@ -43,6 +43,33 @@ def is_palindome_permutation(phrase):
 	else:
 		return True
 
+def one_edit_away(word1, word2):
+	''' determines whether or not two strings are one or less edits away, with edits defined as adding, removing, or replacing '''
+	# insert
+	# remove
+
+	# replace
+	if word1 == word2:
+		return True 
+	count = 0  
+	for idx, char in enumerate(word1):
+		word2_modification = word2[:idx] + char + word2[idx+1:]
+		if word1 == word2_modification:
+			return True 
+
+	# remove char and add character
+	for idx, char in enumerate(word1):
+		word1_modification = word1[:idx] + word1[idx+1:]
+		if word1_modification == word2:
+			return True
+
+	for idx, char in enumerate(word2):
+		word2_modification = word2[:idx] + word2[idx+1:]
+		if word2_modification == word1:
+			return True
+
+
+
 
 
 
