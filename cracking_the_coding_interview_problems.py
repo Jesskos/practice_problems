@@ -68,6 +68,61 @@ def one_edit_away(word1, word2):
 		if word2_modification == word1:
 			return True
 
+	def rotate_matrix(matrix):
+		''' Rotate Matrix: Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. (an you do this in place?
+		>>> [[1,2,3,4], 
+			[5,6,7,8], 
+			[9,10,11,12], 
+			[13,14,15,16]]
+		'''
+			
+		# i = 0
+		# j = 3
+
+		# for idx, row in enumerate(matrix):
+		# 	for idx, num in enumerate(row):
+		# 		matrix[]
+
+class LinkedList(object):
+
+	def __init__(self):
+		self.head = None 
+		self.tail = None 
+
+	def print_list(self):
+		current = self.head 
+		while current != None:
+			print current.data
+			current = current.next 
+
+	def remove_duplicates(self):
+		''' a method to remove nodes with duplicate pieces of data''' 
+		seen = [self.head.data]
+		current = self.head 
+		while current != None:
+			if current.next != None:
+				if current.next.data not in seen:
+					seen.append(current.next.data)
+				else:
+					current.next = current.next.next
+
+			current = current.next
+
+
+class Node(object):
+	def __init__(self, data):
+		self.data = data
+		self.next = None
+
+
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
+
+
+
+
 
 
 
