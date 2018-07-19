@@ -108,6 +108,36 @@ class LinkedList(object):
 
 			current = current.next
 
+	def get_length_of_list(self):
+		''' a mathod on linked list class to get length '''
+		count = 0 
+		current = self.head 
+		while current:
+			count += 1
+			current = current.next
+		return count 
+
+	def find_n_to_last_element(self, n_to_last):
+		''' a method that returns the n to last node of a linked list'''
+
+		current = self.head
+		length = 0 
+		while current:
+			length += 1
+			current = current.next
+
+		current = self.head
+		count = 0
+		num_in_list = count - n_to_last
+		while count <= num_in_list
+			count += 1 
+			if count == forward_index:
+				return current.data
+			current = current.next
+		
+
+
+
 
 class Node(object):
 	def __init__(self, data):
