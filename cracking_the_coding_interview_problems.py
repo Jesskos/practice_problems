@@ -120,29 +120,43 @@ class LinkedList(object):
 	def find_n_to_last_element(self, n_to_last):
 		''' a method that returns the n to last node of a linked list'''
 
+		length = self.get_length_of_list()
+		forward_num = length - n_to_last
+		previous = None 
 		current = self.head
-		length = 0 
-		while current:
-			length += 1
+		count = 0 
+		while count <= forward_num: 
+			previous = current 
 			current = current.next
-
-		current = self.head
-		count = 0
-		num_in_list = count - n_to_last
-		while count <= num_in_list
 			count += 1 
-			if count == forward_index:
-				return current.data
-			current = current.next
-		
-
-
-
+		if previous: 
+			return previous.data
+		else:
+			return previous
 
 class Node(object):
 	def __init__(self, data):
 		self.data = data
 		self.next = None
+
+
+dog = Node('dog')
+cat = Node('cat')
+bear = Node('bear')
+lion = Node('lion')
+bird = Node('bird')
+dog.next = cat
+cat.next = bear
+bear.next = lion
+lion.next = bird
+animals = LinkedList()
+animals.head = dog
+
+print animals.find_n_to_last_element(3)
+blue = Node('blue')
+colors = LinkedList()
+colors.head = blue
+
 
 
 
