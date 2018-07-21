@@ -96,7 +96,7 @@ class LinkedList(object):
 			current = current.next 
 
 	def remove_duplicates(self):
-		''' a method to remove nodes with duplicate pieces of data''' 
+		''' 2.1 a method to remove nodes with duplicate pieces of data''' 
 		seen = [self.head.data]
 		current = self.head 
 		while current != None:
@@ -118,7 +118,7 @@ class LinkedList(object):
 		return count 
 
 	def find_n_to_last_element(self, n_to_last):
-		''' a method that returns the n to last node of a linked list'''
+		''' 2.2 a method that returns the n to last node of a linked list. If n_to_last longer than list, returns None'''
 
 		length = self.get_length_of_list()
 		forward_num = length - n_to_last
@@ -133,6 +133,20 @@ class LinkedList(object):
 			return previous.data
 		else:
 			return previous
+
+	def delete_middle_node(self, node):
+		''' deletes a node in the middle given access to only one node. If node not in the middle, list not changes''' 
+
+		if self.head != node and node.next != None:
+			current = self.head
+			while current != node:
+				previous = current
+				current = current.next 
+				if current == node:
+					previous.next = current.next 
+
+
+
 
 class Node(object):
 	def __init__(self, data):
