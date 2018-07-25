@@ -510,6 +510,12 @@ def has_balanced_brackets(phrase):
         return True 
 
            
+def string_operators(str):
+    "+-*/**"
+    list_of_operators = []
+    for item in str:
+        if item == "*":
+            
 
 
 

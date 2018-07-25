@@ -1,3 +1,5 @@
+#strings and lists
+
 def all_unique(str):
 	''' check if all characters are unique without using additional data structures ''' 
 	for idx, char in enumerate(str):
@@ -83,6 +85,8 @@ def one_edit_away(word1, word2):
 		# 	for idx, num in enumerate(row):
 		# 		matrix[]
 
+# Linked List 
+
 class LinkedList(object):
 
 	def __init__(self):
@@ -146,14 +150,43 @@ class LinkedList(object):
 					previous.next = current.next 
 
 
-
-
 class Node(object):
 	def __init__(self, data):
 		self.data = data
 		self.next = None
 
+# Stacks and Queues 
 
+class Stack(object):
+	def __init__(self):
+		self.stack = []
+
+	def push(self, item):
+		self.stack.append(item)
+
+	def pop(self):
+		self.stack.pop()
+
+	def peek(self):
+		return self.stack[-1]
+
+	def is_empty(self):
+		if not self.stack:
+			return True
+		else:
+			return False 
+
+	def get_min_value(self, min_value=None):
+		''' gets min value of a stack in o(n) runtume with practice in recursion'''
+		value = self.peek()
+		if value < min_value:
+			min_value = value
+		if self[0:len(self.stack)-1]:
+			return get_min_value(self, min_value)
+		return min_value
+		
+
+# sample data 
 dog = Node('dog')
 cat = Node('cat')
 bear = Node('bear')
@@ -172,12 +205,35 @@ colors = LinkedList()
 colors.head = blue
 
 
+class BinarySearchNode(object):
+	def __init__(self, data = None, left = None, right = None):
+		self.data = data 
+		self.left = left
+		self.right = right
 
+def make_binary_tree(sorted_num_list):
+	""" takes a list of sorted nums and makes a binary search tree  [1,2,3,4,5] --> [1,2], [""" 
+	
+def make_bst(sorted_num_list):
+    """Given a list of sorted numbers, make a binary search tree.
 
-if __name__ == "__main__":
+    Returns the root node of a new BST that is valid and balanced.
+    """
+    if not sorted_num_list:
+        return None
+
+    middle_index = len(sorted_num_list)/2
+    middle_num = sorted_num_list[middle_index]
+    node = BinaryNode(middle_num)
+    node.left = make_bst(sorted_num_list[:middle_index])
+    node.right = make_bst(sorted_num_list[middle_index+1:]) 
+
+    return node 
+
+if __name__ == '__main__':
     import doctest
-    doctest.testmod()
-
+    if doctest.testmod().failed == 0:
+        print("\n**** ALL TESTS PASSED. YOU'RE A TREE-MASTER!\n")
 
 
 
