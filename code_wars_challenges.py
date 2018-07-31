@@ -510,13 +510,42 @@ def has_balanced_brackets(phrase):
         return True 
 
            
-def string_operators(str):
-    "+-*/**"
-    list_of_operators = []
-    for item in str:
-        if item == "*":
-            
 
+class CaesarCipher(object):
+    def __init__(self, shift):
+        self.shift = shift
+        
+    def encode(self, str):
+        alphabet = "abcdefghijklmnopqrstuvwxyz"
+        new_str = ""
+        str = str.lower()
+        for letter in str:
+            if letter in alphabet:
+                index_of_letter = alphabet.index(letter)
+                new_letter_index = index_of_letter + self.shift
+                if new_letter_index < 26:
+                    new_str += alphabet[new_letter_index].upper()
+                else:
+                    new_letter_index = new_letter_index - 26
+                    new_str += alphabet[new_letter_index].upper()
+            else:
+                new_str += letter 
+        return new_str
+            
+    def decode(self, str):
+        alphabet = "abcdefghijklmnopqrstuvwxyz"
+        new_str = ""
+        for letter in str:
+            if letter.lower() in alphabet:
+                index_of_letter = alphabet.index(letter.lower())
+                new_letter_index = index_of_letter - self.shift
+                new_str += alphabet[new_letter_index].upper()
+            else:
+                new_str += letter
+        return new_str
+        
+        
+        
 
 
 if __name__ == "__main__":
