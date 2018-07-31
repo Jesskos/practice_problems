@@ -211,8 +211,7 @@ class BinarySearchNode(object):
 		self.left = left
 		self.right = right
 
-def make_binary_tree(sorted_num_list):
-	""" takes a list of sorted nums and makes a binary search tree  [1,2,3,4,5] --> [1,2], [""" 
+
 	
 def make_bst(sorted_num_list):
     """Given a list of sorted numbers, make a binary search tree.
@@ -230,13 +229,33 @@ def make_bst(sorted_num_list):
 
     return node 
 
-if __name__ == '__main__':
-    import doctest
-    if doctest.testmod().failed == 0:
-        print("\n**** ALL TESTS PASSED. YOU'RE A TREE-MASTER!\n")
+class TreeNode(object):
+	''' tree practice ''' 
+
+	def __init__(self, data, children):
+		self.data = data 
+		self.children = children 
+
+	def print_nodes(self):
+		to_visit = [self]
+
+		while to_visit:
+			node = to_visit.pop()
+			print node.data 
+			if node.children:
+				to_visit.extend(node.children)
 
 
-
+apple = TreeNode("apple", [])
+ghost = TreeNode("ghost", [])
+fence = TreeNode("fence", [apple, ghost])
+just = TreeNode("just", [])
+jackal = TreeNode("jackal", [fence, just])
+zebra = TreeNode("zebra", [])
+pencil = TreeNode("pencil", [zebra])
+mystic = TreeNode("mystic", [])
+nerd = TreeNode("nerd", [mystic, pencil])
+money = TreeNode("money", [jackal, nerd])
 
 
 

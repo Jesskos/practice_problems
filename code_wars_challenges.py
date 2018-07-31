@@ -569,9 +569,10 @@ def move_zeros(array):
     []
     ''' 
     i = 0 
+    i = 0 
     zero_count = 0 
     while i < len(array):
-        if str(array[i]) == "0" or str(array[i]) == "0.0":
+        if array[i] is not False and (array[i] == 0 or array[i] == 0.0):
             array.pop(i)
             zero_count+=1 
         else:
