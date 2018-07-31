@@ -544,8 +544,43 @@ class CaesarCipher(object):
                 new_str += letter
         return new_str
         
-        
-        
+
+def move_zeros(array):
+    ''' moves all zeroes to the end of an array 
+    >>> move_zeros([1,2,0,1,0,1,0,3,0,1])
+    [1, 2, 1, 1, 3, 1, 0, 0, 0, 0]
+    >>> move_zeros([9,0.0,0,9,1,2,0,1,0,1,0.0,3,0,1,9,0,0,0,0,9])
+    [9, 9, 1, 2, 1, 1, 3, 1, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    >>> move_zeros(["a",0,0,"b","c","d",0,1,0,1,0,3,0,1,9,0,0,0,0,9])
+    ['a', 'b', 'c', 'd', 1, 1, 3, 1, 9, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    >>> move_zeros(["a",0,0,"b",None,"c","d",0,1,False,0,1,0,3,[],0,1,9,0,0,{},0,0,9])
+    ['a', 'b', None, 'c', 'd', 1, False, 1, 3, [], 1, 9, {}, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    >>> move_zeros([0,1,None,2,False,1,0])
+    [1, None, 2, False, 1, 0, 0]
+    >>> move_zeros(["a","b"])
+    ['a', 'b']
+    >>> move_zeros(["a"])
+    ['a']
+    >>> move_zeros([0,0])
+    [0, 0]
+    >>> move_zeros([0])
+    [0]
+    >>> move_zeros([])
+    []
+    ''' 
+    i = 0 
+    zero_count = 0 
+    while i < len(array):
+        if str(array[i]) == "0" or str(array[i]) == "0.0":
+            array.pop(i)
+            zero_count+=1 
+        else:
+            i += 1 
+    c = 0 
+    while c < zero_count:
+        array.append(0)
+        c+=1 
+    return array 
 
 
 if __name__ == "__main__":
