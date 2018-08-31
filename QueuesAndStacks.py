@@ -52,42 +52,7 @@ class QueueStack(object):
 		print self.my_stack_enqueue.print_stack()
 		print self.my_stack_dequeue.print_stack()
 
-class MinStack(object):
-    ''' A stack with methods in linear runtime'''
-   
-    def __init__(self):
-        self._stack = []
-        self.minimum = None
-        
-    def push(self, x):
-        if not self._stack:
-            self.minimum = x
-        elif x < self.minimum:
-            self.minimum = x
-        self._stack.append(x)
-            
 
-    # @return nothing
-    def pop(self):
-        if self._stack:
-            self._stack.pop()
-        if not self.stack:
-        	return -1
-
-
-	# @return an integer
-	def top(self):
-		if self._stack:
-			return self._stack[-1]
-		else:
-			return -1
-        
-    # @return an integer
-    def get_min(self):
-    	if self.minimum:
-    		return self.minimum
-    	else:
-    		return -1
 
 
 class Queue(object):
@@ -140,6 +105,35 @@ class StackQueue(object):
 
 
 
+class MinStack(object):
+	def __init__(self):
+		self._stack = []
+		self._supporting = []
+
+	def push(self, x):
+		if not self._stack:
+			self._supporting.append(x)
+		elif x < self._supporting[-1]:
+			self._supporting.append(x)
+		self._stack.append(x)
+
+	def pop(self):
+		popped = self._stack.pop()
+		top = self._supporting[-1]
+		if popped == top:
+			self._supporting.pop()
+
+	def top(self):
+		if self._supporting:
+			return self._supporting[-1]
+		else:
+			return -1
+
+	def getMin(self):
+		if self._supporting:
+			return self._supporting[-1]
+		else:
+			return -1
 
 
 
