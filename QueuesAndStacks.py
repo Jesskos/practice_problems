@@ -107,29 +107,42 @@ class StackQueue(object):
 
 class MinStack(object):
 	def __init__(self):
+		''' a main stack to keep track of all nums and supporting stack to keep track of minimums'''
 		self._stack = []
 		self._supporting = []
 
 	def push(self, x):
-		if not self._stack:
-			self._supporting.append(x)
-		elif x < self._supporting[-1]:
-			self._supporting.append(x)
+		''' adds new top element to main stack. If new element is less than the current top element 
+		in supporting stack, appends this element to top to become new minimum. Else, adds re-adds 
+		current top (minimum) to supporting stack''' 
+
 		self._stack.append(x)
 
+		if self._supporting:
+			minimum = self.getMin()
+			if x < minimum:
+				self._supporting.append(x)
+			else:
+				self._supporting.append(minimum)
+
+		else:
+			self._supporting.append(x)
+
+
 	def pop(self):
-		popped = self._stack.pop()
-		top = self._supporting[-1]
-		if popped == top:
-			self._supporting.pop()
+		''' removes top element of main stack and supporting stack ''' 
+		self._stack.pop()
+		self._supporting.pop()
 
 	def top(self):
+		''' gets the top element from the main stack ''' 
 		if self._supporting:
 			return self._supporting[-1]
 		else:
 			return -1
 
 	def getMin(self):
+		''' gets the minimum from the supporting stack, which is always the top element''' 
 		if self._supporting:
 			return self._supporting[-1]
 		else:
