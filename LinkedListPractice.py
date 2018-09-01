@@ -1,9 +1,11 @@
 class LinkedListNode(object):
+    ''' a simple Linked List class'''
     def __init__(self, data):
         self.next = None
         self.data = data
 
 def reverseLinkedListNotInPlace(head_node):
+    ''' reverses a linked list by creating a new linked list'''
     current = head_node
     new_head = None
     prev = None
@@ -25,7 +27,9 @@ C.next = D
 D.next = None
 
 def print_nodes(head_node):
+    ''' prints all the nodes in sequence '''
     current = head_node
     while current:
         print(current.data)
         current = current.next
+
