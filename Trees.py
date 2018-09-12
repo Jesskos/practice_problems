@@ -30,6 +30,28 @@ def make_bst(nums):
 
 
 
+class BinaryNode(object):
+    """Node in a binary tree."""
+
+    def __init__(self, data, left=None, right=None):
+        self.data = data
+        self.left = left
+        self.right = right
+
+    def is_balanced(self):
+        """Is the tree at this node balanced?"""
+
+        right_depth = 0 
+        left_depth = 0 
+        if self.right:
+            right_depth = self.in_balanced(self.right)
+        if self.left: 
+            left_depth = self.is_balanced(self.left)
+        depth = 1 + 
+
+
+
+
 
 if __name__ == '__main__':
     import doctest
